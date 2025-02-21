@@ -1,0 +1,69 @@
+{
+  "users": [
+    {
+      "id": "2f5c",
+      "nombre": "Allan José",
+      "apellido": "Vélez Gonzáles",
+      "email": "velezalan34@gmail.com",
+      "password": "lsdisfun34",
+      "edad": "22"
+    },
+    {
+      "id": "7b55",
+      "nombre": "Allan",
+      "apellido": "Velez",
+      "email": "velezalan34@gmail.com",
+      "password": "lsdisfun34",
+      "edad": "22"
+    },
+    {
+      "id": "ffe9",
+      "nombre": "aljdawldj",
+      "apellido": "lakwjdalkdwj",
+      "email": "lkajkwdjla@adwad.com",
+      "password": "dñalwkdñlawdk2323",
+      "edad": "2323"
+    },
+    {
+      "id": "5361",
+      "nombre": "Daniel",
+      "apellido": "Medina",
+      "email": "dmedina@fwdostarica.com",
+      "password": "123456789",
+      "edad": "18"
+    },
+    {
+      "id": "427e",
+      "nombre": "adlkawldk",
+      "apellido": "awkdjaldkj",
+      "email": "mdñalwdmña@jalwdal.com",
+      "password": "12912j1k21jn",
+      "edad": "22"
+    },
+    {
+      "id": "bb7c",
+      "nombre": " fakljawlkdj",
+      "apellido": "lfkajfwald",
+      "email": "dlakwdmalkdm",
+      "password": "alwdkañld",
+      "edad": "2323"
+    },
+    {
+      "id": "71a1",
+      "nombre": "fabri",
+      "apellido": "vargas",
+      "email": "fabricio@gmail.com",
+      "password": "123",
+      "edad": "18"
+    },
+    {
+      "id": "3db5",
+      "nombre": "",
+      "apellido": "",
+      "email": "",
+      "password": "",
+      "edad": ""
+    }
+  ],
+  "productos": []
+}

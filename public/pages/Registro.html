@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <script src="/sweetalert2/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/sweetalert2/sweetalert2.min.css">
+
+</head>
+<body class="container mt-5">
+    <div class="text-center mb-4">
+        <a href="../index.html" class="btn btn-info">Ir a inicio</a>
+    </div>
+    <h1 class="mb-4 text-center">Formulario de registro</h1>
+
+    <form class="border p-4 rounded bg-light">
+        <div class="form-group">
+            <label for="id">Nombre de Usuario: </label>
+            <input type="text" class="form-control" id="id" name="id" required>
+        </div>
+        <div class="form-group">
+            <label for="nameProduct">Nombre: </label>
+            <input type="text" class="form-control" id="nameProduct" name="Nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido: </label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required>
+        </div>
+        <div class="form-group">
+            <label for="edad">Edad: </label>
+            <input type="number" class="form-control" id="edad" name="edad" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email: </label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-primary" id="btn-agregar">Agregar usuario</button>
+            <button type="button" class="btn btn-secondary" id="btn-mostrar">Mostrar usuarios</button>
+            <button type="button" class="btn btn-warning" id="btn-actualizar">Actualizar usuario</button>
+            <button type="button" class="btn btn-danger" id="btn-eliminar">Eliminar usuario</button>
+        </div>
+    </form>
+
+    <div id="base-datos" class="mt-4"></div>
+
+    <script type="module" src="../js/registroUsers.js"></script>
+</body>
+</html>
