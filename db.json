@@ -65,5 +65,13 @@
       "edad": ""
     }
   ],
-  "productos": []
+  "productos": [
+    {
+      "nombre": "loco",
+      "categoria": "tocar",
+      "cantidad": "1",
+      "precio": "12",
+      "id": "a36b"
+    }
+  ]
 }

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POS System</title>
+    <title>POSOLUTION</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link type="module" rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css">
 </head>
 <body>
     <header class="bg-primary text-white text-center py-3">
-        <h1>POS System</h1>
+        <h1>POSOLUTION</h1>
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="../">POS System</a>
+            <a class="navbar-brand" href="../">POSOLUTION</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,19 +26,67 @@
                     <li class="nav-item">
                         <a class="nav-link" href="pages/inventario.html">Inventario de Productos</a>
                     </li>
+                    <li class="nav-item ml-auto"></li>
+                        <button class="btn btn-link nav-link" onclick="location.href='pages/Login.html'">Login de Usuarios</button>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/Login.html">Login de Usuarios</a>
+                        <a class="nav-link" href="pages/ventas.html">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/clientes.html">Clientes</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <main class="container mt-4">
-        <h2>Welcome to the POS System</h2>
-        <p>Select an option from the menu to get started.</p>
+        <div class="jumbotron text-center">
+            <h2 class="display-4">Bienvenido a POSOLUTION</h2>
+            <p class="lead">Gestiona eficientemente tus ventas, inventario y clientes con nuestra solución integral de POS.</p>
+            <hr class="my-4">
+            <p>Comienza seleccionando una opción del menú de arriba.</p>
+            <a class="btn btn-primary btn-lg" href="pages/Registro.html" role="button">Regístrate Ahora</a>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Registro de Usuarios</h5>
+                        <p class="card-text">Gestiona cuentas de usuario y niveles de acceso.</p>
+                        <a href="pages/Registro.html" class="btn btn-primary">Ir al Registro</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Inventario de Productos</h5>
+                        <p class="card-text">Mantén un seguimiento de tu stock de productos y detalles.</p>
+                        <a href="pages/inventario.html" class="btn btn-primary">Ir al Inventario</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestión de Ventas</h5>
+                        <p class="card-text">Monitorea y gestiona tus transacciones de ventas.</p>
+                        <a href="pages/ventas.html" class="btn btn-primary">Ir a Ventas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer class="bg-light text-center py-3">
-        <p>&copy; 2023 POS System</p>
+
+    <footer class="bg-light text-center py-3 mt-5 border-top">
+        <div class="container">
+            <p class="mb-0">&copy; 2023 POSOLUTION. Todos los derechos reservados.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacidad</a></li>
+                <li class="list-inline-item"><a href="#">Términos</a></li>
+                <li class="list-inline-item"><a href="#">Soporte</a></li>
+            </ul>
+        </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

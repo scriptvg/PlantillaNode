@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja</title>
+</head>
+<body>
+    
+    <h1>Carrito de Compras</h1>
+    <div id="carrito">
+        <h2>Productos en el Carrito</h2>
+        <ul id="lista-carrito"></ul>
+        <button onclick="generarFactura()">Generar Factura</button>
+    </div>
+
+    <h2>Buscar Producto</h2>
+    <input type="text" id="buscar" placeholder="Buscar producto">
+    <button onclick="buscarProducto()">Buscar</button>
+
+    <h2>Productos Disponibles</h2>
+    <ul id="lista-productos">
+        <!-- Productos disponibles se agregarán aquí -->
+    </ul>
+
+    <script>
+        const productos = [
+            { id: 1, nombre: 'Producto 1', precio: 10 },
+            { id: 2, nombre: 'Producto 2', precio: 20 },
+            { id: 3, nombre: 'Producto 3', precio: 30 }
+        ];
+
+        const carrito = [];
+
+        function mostrarProductos() {
+            const listaProductos = document.getElementById('lista-productos');
+            listaProductos.innerHTML = '';
+            productos.forEach(producto => {
+                const li = document.createElement('li');
+                li.textContent = `${producto.nombre} - $${producto.precio}`;
+                const botonAgregar = document.createElement('button');
+                botonAgregar.textContent = 'Agregar al Carrito';
+                botonAgregar.onclick = () => agregarAlCarrito(producto.id);
+                li.appendChild(botonAgregar);
+                listaProductos.appendChild(li);
+            });
+        }
+
+        function agregarAlCarrito(id) {
+            const producto = productos.find(p => p.id === id);
+            carrito.push(producto);
+            mostrarCarrito();
+        }
+
+        function mostrarCarrito() {
+            const listaCarrito = document.getElementById('lista-carrito');
+            listaCarrito.innerHTML = '';
+            carrito.forEach(producto => {
+                const li = document.createElement('li');
+                li.textContent = `${producto.nombre} - $${producto.precio}`;
+                listaCarrito.appendChild(li);
+            });
+        }
+
+        function buscarProducto() {
+            const termino = document.getElementById('buscar').value.toLowerCase();
+            const resultados = productos.filter(p => p.nombre.toLowerCase().includes(termino));
+            const listaProductos = document.getElementById('lista-productos');
+            listaProductos.innerHTML = '';
+            resultados.forEach(producto => {
+                const li = document.createElement('li');
+                li.textContent = `${producto.nombre} - $${producto.precio}`;
+                const botonAgregar = document.createElement('button');
+                botonAgregar.textContent = 'Agregar al Carrito';
+                botonAgregar.onclick = () => agregarAlCarrito(producto.id);
+                li.appendChild(botonAgregar);
+                listaProductos.appendChild(li);
+            });
+        }
+
+        function generarFactura() {
+            let total = 0;
+            carrito.forEach(producto => {
+                total += producto.precio;
+            });
+            alert(`Total a pagar: $${total}`);
+        }
+
+        mostrarProductos();
+    </script>
+
+</body>
+</html>

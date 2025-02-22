@@ -171,4 +171,44 @@ export const EditarProductoBtn = (title, text,
     });
 }
 
+export const AlertaEditarProducto = (title, confirmButtonText, url, product) => {
+    Swal.fire({
+        title,
+        html: `
+            <input type="text" id="nombre" class="swal2-input" placeholder="Nombre del producto" value="${product.nombre}">
+            <input type="number" id="precio" class="swal2-input" placeholder="Precio" value="${product.precio}">
+            <input type="text" id="categoria" class="swal2-input" placeholder="Categoría" value="${product.categoria}">
+        `,
+        confirmButtonText,
+        showCancelButton: true,
+        preConfirm: () => {
+            const nombre = document.getElementById('nombre').value;
+            const precio = document.getElementById('precio').value;
+            const categoria = document.getElementById('categoria').value;
+
+            if (!nombre || !precio || !categoria) {
+                Swal.showValidationMessage('Todos los campos son obligatorios');
+            } else {
+                return { nombre, precio, categoria };
+            }
+        }
+    }).then((resultado) => {
+        if (resultado.isConfirmed) {
+            fetch(url, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(resultado.value)
+            })
+            .then(response => response.json())
+            .then(data => {
+                Swal.fire('Producto editado', `Nombre: ${data.nombre}\nPrecio: $${data.precio}`, 'success');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire('Error', 'No se pudo editar el producto', 'error');
+            });
+        }
+    });
+};
+
 

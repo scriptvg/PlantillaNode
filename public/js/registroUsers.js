@@ -1,61 +1,68 @@
 import { PostUsers, GetUsers, PutUsers, DeleteUsers } from '../services/users.js';
 import { Alerta } from '../utils/alerts.js';
 
-const nombre = document.getElementById('nameProduct');
-const apellido = document.getElementById('apellido');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const edad = document.getElementById('edad');
-const btn_add = document.getElementById('btn-agregar');
-const btn_show = document.getElementById('btn-mostrar');
-const btn_update = document.getElementById('btn-actualizar');
-const btn_delete = document.getElementById('btn-eliminar');
-const datos = document.getElementById('base-datos');
+const elements = {
+    nombre: document.getElementById('nameProduct'),
+    apellido: document.getElementById('apellido'),
+    email: document.getElementById('email'),
+    password: document.getElementById('password'),
+    edad: document.getElementById('edad'),
+    btnAdd: document.getElementById('btn-agregar'),
+    btnShow: document.getElementById('btn-mostrar'),
+    btnUpdate: document.getElementById('btn-actualizar'),
+    btnDelete: document.getElementById('btn-eliminar'),
+    datos: document.getElementById('base-datos')
+};
+
+function showError(error) {
+    console.error('Error:', error);
+    Alerta('Error', error.message, 'error', 'OK', '/pages/Registro.html');
+}
 
 // Agregar usuario
-btn_add.addEventListener('click', async () => {
+elements.btnAdd.addEventListener('click', async () => {
     try {
-        await PostUsers(nombre.value, apellido.value, email.value, password.value, edad.value);
+        await PostUsers(elements.nombre.value, elements.apellido.value, elements.email.value, elements.password.value, elements.edad.value);
         Alerta('Éxito', 'Usuario agregado exitosamente', 'success', 'OK', '/pages/Registro.html');
     } catch (error) {
-        Alerta('Error', error.message, 'error', 'OK', '/pages/Registro.html');
+        showError(error);
     }
 });
 
 // Mostrar usuarios
-btn_show.addEventListener('click', async () => {
+elements.btnShow.addEventListener('click', async () => {
     try {
         const users = await GetUsers();
-        datos.innerHTML = '';
+        elements.datos.innerHTML = '';
         users.forEach(user => {
             const userElement = document.createElement('p');
             userElement.textContent = `ID: ${user.id}, Nombre: ${user.nombre}, Apellido: ${user.apellido}, Email: ${user.email}, Edad: ${user.edad}`;
-            datos.appendChild(userElement);
+            elements.datos.appendChild(userElement);
         });
     } catch (error) {
-        Alerta('Error', error.message, 'error', 'OK', '/pages/Registro.html');
+        showError(error);
     }
 });
 
 // Actualizar usuario
-btn_update.addEventListener('click', async () => {
+elements.btnUpdate.addEventListener('click', async () => {
     try {
         const userId = prompt('Ingrese el ID del usuario a actualizar:');
-        await PutUsers(userId, nombre.value, apellido.value, email.value, password.value, edad.value);
+        await PutUsers(userId, elements.nombre.value, elements.apellido.value, elements.email.value, elements.password.value, elements.edad.value);
         Alerta('Éxito', 'Usuario actualizado exitosamente', 'success', 'OK', '/pages/Registro.html');
     } catch (error) {
-        Alerta('Error', error.message, 'error', 'OK', '/pages/Registro.html');
+        showError(error);
     }
 });
 
 // Eliminar usuario
-btn_delete.addEventListener('click', async () => {
+elements.btnDelete.addEventListener('click', async () => {
     try {
         const userId = prompt('Ingrese el ID del usuario a eliminar:');
         await DeleteUsers(userId);
         Alerta('Éxito', 'Usuario eliminado exitosamente', 'success', 'OK', '/pages/Registro.html');
     } catch (error) {
-        Alerta('Error', error.message, 'error', 'OK', '/pages/Registro.html');
+        showError(error);
     }
 });
 
